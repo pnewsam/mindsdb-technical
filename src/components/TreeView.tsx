@@ -21,9 +21,16 @@ export default function TreeView({
               key={item.name}
               name={item.name}
               items={item.children}
+              type={item.type}
+              engine={item.engine}
             />
           ) : (
-            <Row key={item.name} name={item.name} />
+            <Row
+              key={item.name}
+              name={item.name}
+              type={item.type}
+              engine={item.engine}
+            />
           ),
         )}
       </div>
