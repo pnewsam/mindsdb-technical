@@ -11,11 +11,13 @@ export default function CollapsibleRow({
   type,
   items,
   engine,
+  dbClass,
 }: {
   name: string;
   type?: string;
   items: Database[];
   engine?: string | null;
+  dbClass?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -34,14 +36,19 @@ export default function CollapsibleRow({
             open && "rotate-180",
           )}
         />
-        <Icon />
+        {(type || engine || dbClass) && (
+          <Icon category={type || engine || (dbClass as string)} />
+        )}
         <span className="font-medium tracking-tight">{name}</span>
-        {type && <Badge>{type}</Badge>}
-        {engine && <Badge>{engine}</Badge>}
+        {[type, engine, dbClass].filter(Boolean).map((category) => (
+          <Badge key={category} variant={category as string}>
+            {category}
+          </Badge>
+        ))}
       </div>
       <div
         className={cn(
-          "px-4 transition duration-150",
+          "ml-8 transition duration-150",
           open ? "block h-auto" : "collapse h-0",
         )}
       >

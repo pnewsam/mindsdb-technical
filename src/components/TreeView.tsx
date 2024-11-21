@@ -9,6 +9,21 @@ export default function TreeView({
   title: string;
   items: Database[];
 }) {
+  console.log(
+    "types",
+    items.map((item) => item.type),
+  );
+
+  console.log(
+    "engines",
+    items.map((item) => item.engine),
+  );
+
+  console.log(
+    "classs",
+    items.map((item) => item.class),
+  );
+
   return (
     <div className="rounded-lg border bg-white shadow">
       <div className="mx-4 border-b py-4">
@@ -23,6 +38,7 @@ export default function TreeView({
               items={item.children}
               type={item.type}
               engine={item.engine}
+              dbClass={item.class}
             />
           ) : (
             <Row
@@ -30,6 +46,7 @@ export default function TreeView({
               name={item.name}
               type={item.type}
               engine={item.engine}
+              dbClass={item.class}
             />
           ),
         )}
