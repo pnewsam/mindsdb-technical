@@ -1,4 +1,5 @@
 import { Database, FolderTree, Brain, Bot, View } from "lucide-react";
+import { cn } from "../utils/cn";
 
 const iconByCategory = {
   db: Database,
@@ -13,7 +14,13 @@ const getIconByCategory = (category: string) => {
   return match || Database;
 };
 
-export default function Icon({ category }: { category: string }) {
+export default function Icon({
+  category,
+  className,
+}: {
+  category: string;
+  className?: string;
+}) {
   const Component = getIconByCategory(category);
-  return <Component className="h-4 w-4" />;
+  return <Component className={cn("h-4 w-4", className)} />;
 }

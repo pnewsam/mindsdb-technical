@@ -1,9 +1,8 @@
-export type Database = {
-  name: string;
-  class: string;
-  type?: string;
-  engine?: string | null;
-  deletable: boolean;
-  visible?: boolean;
-  children?: Database[];
-};
+import { type TreeViewNode } from "./treeView";
+
+export interface DatabaseNode extends TreeViewNode {
+  class: "db" | "table";
+  type: "project" | "model" | "agent";
+  engine: "lightwood" | "files" | "web" | null;
+  children?: DatabaseNode[];
+}

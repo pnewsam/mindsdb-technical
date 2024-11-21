@@ -2,30 +2,37 @@ import { useState } from "react";
 import { ChevronUp } from "lucide-react";
 import Icon from "./Icon";
 import Badge from "./Badge";
+import { getClassesByType } from "../utils/database";
 import { cn } from "../utils/cn";
-import { Database } from "../types/database";
-import Row from "./Row";
+import TreeViewRow from "./TreeViewRow";
+import { TreeViewNode } from "../types/treeView";
 
 export default function CollapsibleRow({
   name,
   type,
-  items,
+  children,
   engine,
   dbClass,
 }: {
   name: string;
   type?: string;
-  items: Database[];
+  children?: TreeViewNode[];
   engine?: string | null;
   dbClass?: string;
 }) {
   const [open, setOpen] = useState(false);
 
+  const buttonId = `${name}-button`;
+  const contentId = `${name}-content`;
+
   return (
     <div>
-      <div
-        className="flex cursor-pointer items-center justify-start gap-2 rounded p-2 transition hover:bg-neutral-100"
-        aria-role=""
+      <button
+        type="button"
+        id={buttonId}
+        className="flex w-full cursor-pointer items-center justify-start gap-2 rounded p-2 transition hover:bg-neutral-100"
+        aria-expanded={open}
+        aria-controls={contentId}
         onClick={() => {
           setOpen(!open);
         }}
@@ -37,29 +44,32 @@ export default function CollapsibleRow({
           )}
         />
         {(type || engine || dbClass) && (
-          <Icon category={type || engine || (dbClass as string)} />
+          <Icon
+            category={type || engine || (dbClass as string)}
+            className={getClassesByType(type)}
+          />
         )}
-        <span className="font-medium tracking-tight">{name}</span>
-        {[type, engine, dbClass].filter(Boolean).map((category) => (
+        <span
+          className={cn("font-medium tracking-tight", getClassesByType(type))}
+        >
+          {name}
+        </span>
+        {[engine, type, dbClass].filter(Boolean).map((category) => (
           <Badge key={category} variant={category as string}>
             {category}
           </Badge>
         ))}
-      </div>
+      </button>
       <div
+        id={contentId}
+        role="region"
+        aria-labelledby={buttonId}
         className={cn(
           "ml-8 transition duration-150",
           open ? "block h-auto" : "collapse h-0",
         )}
       >
-        {items?.map((item) => (
-          <Row
-            key={item.name}
-            name={item.name}
-            type={item.type}
-            engine={item.engine}
-          />
-        ))}
+        {children?.map((item) => <TreeViewRow key={item.name} item={item} />)}
       </div>
     </div>
   );
