@@ -3,15 +3,17 @@ import CollapsibleRow from "./CollapsibleRow";
 import Row from "./Row";
 
 export default function TreeViewRow({
-  item,
+  node,
   level = 0,
+  RowContent,
 }: {
-  item: TreeViewNode;
+  node: TreeViewNode;
   level: number;
+  RowContent: React.ComponentType<TreeViewNode>;
 }) {
-  return item.children ? (
-    <CollapsibleRow {...item} level={level + 1} />
+  return node.children ? (
+    <CollapsibleRow level={level + 1} RowContent={RowContent} {...node} />
   ) : (
-    <Row {...item} />
+    <Row RowContent={RowContent} {...node} />
   );
 }

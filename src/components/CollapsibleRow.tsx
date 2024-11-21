@@ -1,27 +1,19 @@
 import { useState } from "react";
 import { ChevronUp } from "lucide-react";
-import Icon from "./Icon";
-import Badge from "./Badge";
-import { getClassesByType } from "../utils/database";
 import { cn } from "../utils/cn";
 import TreeViewRow from "./TreeViewRow";
 import { TreeViewNode } from "../types/treeView";
 
 export default function CollapsibleRow({
-  name,
-  type,
   children,
-  engine,
-  dbClass,
   level,
+  RowContent,
+  ...node
 }: {
-  name: string;
-  type?: string;
   children?: TreeViewNode[];
-  engine?: string | null;
-  dbClass?: string;
   level: number;
-}) {
+  RowContent: React.ComponentType<TreeViewNode>;
+} & TreeViewNode) {
   const [open, setOpen] = useState(false);
 
   const buttonId = `${level}-${name}-button`;
@@ -43,22 +35,7 @@ export default function CollapsibleRow({
             open && "rotate-180",
           )}
         />
-        {(type || engine || dbClass) && (
-          <Icon
-            category={type || engine || (dbClass as string)}
-            className={getClassesByType(type)}
-          />
-        )}
-        <span
-          className={cn("font-medium tracking-tight", getClassesByType(type))}
-        >
-          {name}
-        </span>
-        {[engine, type, dbClass].filter(Boolean).map((category) => (
-          <Badge key={category} variant={category as string}>
-            {category}
-          </Badge>
-        ))}
+        <RowContent {...node} />
       </button>
       <div
         id={contentId}
@@ -69,8 +46,13 @@ export default function CollapsibleRow({
         role="region"
         aria-labelledby={buttonId}
       >
-        {children?.map((item) => (
-          <TreeViewRow key={item.name} item={item} level={level} />
+        {children?.map((node) => (
+          <TreeViewRow
+            key={node.name}
+            node={node}
+            level={level}
+            RowContent={RowContent}
+          />
         ))}
       </div>
     </div>
