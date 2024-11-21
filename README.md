@@ -17,3 +17,8 @@ bun run dev
 # OR
 npm run dev
 ```
+
+## To Do List
+
+- [] Do I need to do anything with the `visible` and `deleteable` keys?
+- []

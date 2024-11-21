@@ -15,7 +15,7 @@ export default function Row({
   dbClass?: string;
 }) {
   return (
-    <div className="flex cursor-pointer items-center justify-start gap-2 rounded p-2 transition hover:bg-neutral-100">
+    <div className="flex cursor-pointer items-center justify-start gap-2 rounded p-2 transition hover:bg-gray-100">
       {(type || engine || dbClass) && (
         <Icon
           category={type || engine || (dbClass as string)}

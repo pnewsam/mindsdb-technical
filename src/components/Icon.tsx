@@ -1,17 +1,27 @@
-import { Database, FolderTree, Brain, Bot, View } from "lucide-react";
+import { Database as Db, FolderTree, Brain, Bot, View } from "lucide-react";
 import { cn } from "../utils/cn";
 
 const iconByCategory = {
-  db: Database,
-  schema: FolderTree,
-  model: Brain,
-  agent: Bot,
-  view: View,
+  db: ({ className }: { className?: string }) => (
+    <Db className={cn("stroke-blue-600", className)} />
+  ),
+  schema: ({ className }: { className?: string }) => (
+    <FolderTree className={cn("stroke-yellow-600", className)} />
+  ),
+  model: ({ className }: { className?: string }) => (
+    <Brain className={cn("stroke-purple-600", className)} />
+  ),
+  agent: ({ className }: { className?: string }) => (
+    <Bot className={cn("stroke-orange-600", className)} />
+  ),
+  view: ({ className }: { className?: string }) => (
+    <View className={cn("stroke-green-600", className)} />
+  ),
 };
 
 const getIconByCategory = (category: string) => {
   const match = iconByCategory[category as keyof typeof iconByCategory];
-  return match || Database;
+  return match || iconByCategory.db;
 };
 
 export default function Icon({
