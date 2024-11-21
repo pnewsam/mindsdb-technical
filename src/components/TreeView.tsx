@@ -1,12 +1,6 @@
-type Database = {
-  name: string;
-  class: string;
-  type?: string;
-  engine?: string | null;
-  deletable: boolean;
-  visible?: boolean;
-  children?: Database[];
-};
+import CollapsibleRow from "./CollapsibleRow";
+import { type Database } from "../types/database";
+import Row from "./Row";
 
 export default function TreeView({
   title,
@@ -21,9 +15,17 @@ export default function TreeView({
         <h4 className="text-xl font-semibold tracking-tight">{title}</h4>
       </div>
       <div className="flex flex-col gap-2 p-4">
-        {items.map((item) => (
-          <div key={item.name}>{item.name}</div>
-        ))}
+        {items.map((item) =>
+          item.children ? (
+            <CollapsibleRow
+              key={item.name}
+              name={item.name}
+              items={item.children}
+            />
+          ) : (
+            <Row key={item.name} name={item.name} />
+          ),
+        )}
       </div>
     </div>
   );
