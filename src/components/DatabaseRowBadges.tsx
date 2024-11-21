@@ -1,6 +1,5 @@
 import { cva } from "class-variance-authority";
 import { cn } from "../utils/cn";
-import { TreeViewNode } from "../types/treeView";
 import { DatabaseNode } from "../types/database";
 
 const variants = cva("rounded px-[8px] py-[4px] text-xs font-medium", {
@@ -24,8 +23,8 @@ const variants = cva("rounded px-[8px] py-[4px] text-xs font-medium", {
   },
 });
 
-export default function DatabaseRowBadges({ ...node }: TreeViewNode) {
-  const { type, engine } = node as DatabaseNode;
+export default function DatabaseRowBadges({ ...node }: DatabaseNode) {
+  const { type, engine } = node;
   return (
     <>
       {engine && <span className={cn(variants({ engine }))}>{engine}</span>}

@@ -1,4 +1,3 @@
-import { TreeViewNode } from "../types/treeView";
 import { DatabaseNode } from "../types/database";
 import { cn } from "../utils/cn";
 import { cva } from "class-variance-authority";
@@ -19,7 +18,7 @@ const variants = cva("font-medium tracking-tight", {
   },
 });
 
-export default function DatabaseRowText({ ...node }: TreeViewNode) {
-  const { name, type } = node as DatabaseNode;
+export default function DatabaseRowText({ ...node }: DatabaseNode) {
+  const { name, type } = node;
   return <h4 className={cn(variants({ type }))}>{name}</h4>;
 }

@@ -1,12 +1,10 @@
 import { Database as Db, FolderTree, Brain, Bot, View } from "lucide-react";
-import { TreeViewNode } from "../types/treeView";
 import { DatabaseNode } from "../types/database";
 import { cva } from "class-variance-authority";
 import { cn } from "../utils/cn";
 
 const iconByType = {
   project: Db,
-  // schema: FolderTree,
   model: Brain,
   agent: Bot,
   view: View,
@@ -34,8 +32,8 @@ const getIconByType = (type: DatabaseNode["type"]) => {
   return match || iconByType.project;
 };
 
-export default function DatabaseRowIcon({ ...node }: TreeViewNode) {
-  const { type, class: nodeClass } = node as DatabaseNode;
+export default function DatabaseRowIcon({ ...node }: DatabaseNode) {
+  const { type, class: nodeClass } = node;
   const Icon = nodeClass === "schema" ? FolderTree : getIconByType(type);
   return <Icon className={cn(variants({ type }))} />;
 }
