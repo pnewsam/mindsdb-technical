@@ -1,4 +1,4 @@
-# TreeView Component [MindsDB Technical Test]
+# TreeView -- MindsDB Technical Test
 
 ## Setup
 
@@ -13,6 +13,8 @@ Run the dev server and view at: http://localhost:5173/
 ```sh
 npm run dev
 ```
+
+You can also view it live at: https://mindsdb-technical.pages.dev/
 
 ## Notes
 
