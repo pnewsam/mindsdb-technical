@@ -27,7 +27,7 @@ export default function CollapsibleRow({
         type="button"
         id={buttonId}
         className={cn(
-          "flex w-full items-center justify-start gap-2 rounded px-2 py-1 transition hover:bg-gray-100",
+          "flex w-full items-center justify-start gap-2 rounded px-2 py-1 transition hover:bg-gray-100/50",
           "ring-2 ring-transparent focus:outline-none focus:ring-2 focus:ring-gray-200",
         )}
         aria-expanded={open}
@@ -53,7 +53,7 @@ export default function CollapsibleRow({
       >
         <div className="overflow-hidden">
           {children?.map((node) => (
-            <div key={node.name} className="py-[3px] px-[2px]">
+            <div key={node.name} className="py-[2px] px-[2px]">
               <TreeViewRow
                 node={node}
                 level={level + 1}
