@@ -1,9 +1,10 @@
 import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 
-import TreeViewRow from "@/components/TreeViewRow";
-import { type TreeViewNode } from "@/types/treeView";
-import { cn } from "@/utils/cn";
+import { type TreeViewNode } from "../types/treeView";
+import { cn } from "../utils/cn";
+
+import TreeViewRow from "./TreeViewRow";
 
 export default function CollapsibleRow({
   children,

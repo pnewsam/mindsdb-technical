@@ -1,4 +1,4 @@
-import { type TreeViewNode } from "@/types/treeView";
+import { type TreeViewNode } from "../types/treeView";
 
 export default function Row({
   RowContent,

@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
-import { type DatabaseNode } from "@/types/database";
-import { cn } from "@/utils/cn";
+import { type DatabaseNode } from "../types/database";
+import { cn } from "../utils/cn";
 
 const variants = cva("font-medium tracking-tight", {
   variants: {
