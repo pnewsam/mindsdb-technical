@@ -30,6 +30,7 @@ export default function CollapsibleRow({
           "flex w-full items-center justify-start gap-2 rounded px-2 py-1 transition hover:bg-gray-100/50",
           "ring-2 ring-transparent focus:outline-none focus:ring-2 focus:ring-gray-200",
         )}
+        // Acessibility guidance followed from: https://www.w3.org/WAI/ARIA/apg/patterns/accordion/examples/accordion/
         aria-expanded={open}
         aria-controls={contentId}
         onClick={() => setOpen(!open)}
@@ -46,6 +47,7 @@ export default function CollapsibleRow({
         id={contentId}
         className={cn(
           "ml-8 grid transition-all duration-200 ease-in-out",
+          // Animating grid row height rather than max-height so that a max-height isn't imposed on nested children
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
         role="region"

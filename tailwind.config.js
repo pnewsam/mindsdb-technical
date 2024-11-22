@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Colors are close but not 100% correct -- would replace these with actual values
         blue: {
           50: "#EEF2FC",
           100: "#DDE6F8",

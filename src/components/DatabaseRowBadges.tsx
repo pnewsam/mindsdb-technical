@@ -14,6 +14,7 @@ const variants = cva(
         agent: "bg-orange-400/10 text-orange-500",
         project: "bg-blue-400/10 text-blue-500",
         data: "bg-blue-400/10 text-blue-500",
+        // No visual example for "table", so defaulting to gray
         table: "bg-gray-400/10 text-gray-500",
       },
       engine: {
