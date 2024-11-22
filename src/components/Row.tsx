@@ -8,7 +8,7 @@ export default function Row({
   RowContent: React.ComponentType<TreeViewNode>;
 } & TreeViewNode) {
   return (
-    <div className="flex cursor-pointer items-center justify-start gap-2 rounded p-2 transition hover:bg-gray-100">
+    <div className="flex items-center justify-start gap-2 rounded p-2 transition hover:bg-gray-100">
       <RowContent {...node} />
     </div>
   );

@@ -13,7 +13,7 @@ export default function TreeView({
   return (
     <div className="rounded-lg border bg-white shadow">
       <div className="mx-5 border-b-2 border-gray-100 py-5">
-        <h4 className="text-xl font-semibold tracking-tight">{title}</h4>
+        <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
       </div>
       <div className="flex flex-col gap-2 p-5">
         {nodes.map((node, index) => (

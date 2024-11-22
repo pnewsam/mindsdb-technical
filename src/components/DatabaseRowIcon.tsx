@@ -33,7 +33,13 @@ const getIconByType = (type: DatabaseNode["type"]) => {
 };
 
 export default function DatabaseRowIcon({ ...node }: DatabaseNode) {
-  const { type, class: nodeClass } = node;
-  const Icon = nodeClass === "schema" ? FolderTree : getIconByType(type);
+  const { type } = node;
+
+  if (node.class === "schema") {
+    // "class": "schema" is one exception to the rule that icons are determined by type
+    return <FolderTree className="text-yellow-500" />;
+  }
+
+  const Icon = getIconByType(type);
   return <Icon className={cn(variants({ type }))} />;
 }
