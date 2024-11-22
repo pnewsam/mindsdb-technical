@@ -2,23 +2,18 @@
 
 ## Setup
 
-Clone the repo and install the dependencies.
+To get set up, clone the repo then install the dependencies:
 
 ```sh
-bun install
-# OR
 npm install
 ```
 
-Run the dev server:
+Run the dev server and view at: http://localhost:5173/
 
 ```sh
-bun run dev
-# OR
 npm run dev
 ```
 
-## To Do List
+## Notes
 
-- [] Do I need to do anything with the `visible` and `deleteable` keys?
-- []
+My goal was to design the TreeView component so that it would be extensible -- you can pass in a RowContent component and any nodes data that fit the TreeViewNode schema to to reuse for a different view.
