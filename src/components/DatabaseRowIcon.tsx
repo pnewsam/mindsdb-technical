@@ -1,6 +1,7 @@
-import { Database as Db, FolderTree, Brain, Bot, View } from "lucide-react";
-import { DatabaseNode } from "../types/database";
 import { cva } from "class-variance-authority";
+import { Bot, Brain, Database as Db, FolderTree, View } from "lucide-react";
+
+import { type DatabaseNode } from "../types/database";
 import { cn } from "../utils/cn";
 
 const iconByType = {
@@ -33,13 +34,12 @@ const getIconByType = (type: DatabaseNode["type"]) => {
 };
 
 export default function DatabaseRowIcon({ ...node }: DatabaseNode) {
-  const { type } = node;
-
   if (node.class === "schema") {
     // "class": "schema" is one exception to the rule that icons are determined by type
     return <FolderTree className="text-yellow-500" />;
   }
 
+  const { type } = node;
   const Icon = getIconByType(type);
   return <Icon className={cn(variants({ type }))} />;
 }

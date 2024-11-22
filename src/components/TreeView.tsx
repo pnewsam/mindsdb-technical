@@ -1,5 +1,5 @@
-import { TreeViewNode } from "../types/treeView";
-import TreeViewRow from "./TreeViewRow";
+import TreeViewRow from "@/components/TreeViewRow";
+import { type TreeViewNode } from "@/types/treeView";
 
 export default function TreeView({
   title,

@@ -1,6 +1,6 @@
-import { TreeViewNode } from "../types/treeView";
-import CollapsibleRow from "./CollapsibleRow";
-import Row from "./Row";
+import CollapsibleRow from "@/components/CollapsibleRow";
+import Row from "@/components/Row";
+import { type TreeViewNode } from "@/types/treeView";
 
 export default function TreeViewRow({
   node,

@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
-import { cn } from "../utils/cn";
-import { DatabaseNode } from "../types/database";
+
+import { type DatabaseNode } from "@/types/database";
+import { cn } from "@/utils/cn";
 
 const variants = cva("rounded px-[8px] py-[4px] text-xs font-medium", {
   variants: {

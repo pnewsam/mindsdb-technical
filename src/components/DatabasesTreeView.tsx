@@ -1,7 +1,6 @@
-import TreeView from "./TreeView";
-
-import databases from "../data/databases.json";
-import DatabaseRowContent from "./DatabaseRowContent";
+import DatabaseRowContent from "@/components/DatabaseRowContent";
+import TreeView from "@/components/TreeView";
+import databases from "@/data/databases.json";
 
 export default function DatabasesTreeView() {
   return (

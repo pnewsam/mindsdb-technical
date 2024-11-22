@@ -1,8 +1,8 @@
-import DatabaseRowBadges from "./DatabaseRowBadges";
-import { TreeViewNode } from "../types/treeView";
-import DatabaseRowText from "./DatabaseRowText";
-import DatabaseRowIcon from "./DatabaseRowIcon";
-import { DatabaseNode } from "../types/database";
+import DatabaseRowBadges from "@/components/DatabaseRowBadges";
+import DatabaseRowIcon from "@/components/DatabaseRowIcon";
+import DatabaseRowText from "@/components/DatabaseRowText";
+import { type DatabaseNode } from "@/types/database";
+import { type TreeViewNode } from "@/types/treeView";
 
 export default function DatabaseRowContent({ ...node }: TreeViewNode) {
   // Coerce type here to avoid having to do it further down
