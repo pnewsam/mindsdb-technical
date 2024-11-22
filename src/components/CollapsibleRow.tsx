@@ -27,7 +27,7 @@ export default function CollapsibleRow({
         type="button"
         id={buttonId}
         className={cn(
-          "flex w-full items-center justify-start gap-2 rounded p-2 transition hover:bg-gray-100",
+          "flex w-full items-center justify-start gap-2 rounded px-2 py-1 transition hover:bg-gray-100",
           "ring-2 ring-transparent focus:outline-none focus:ring-2 focus:ring-gray-200",
         )}
         aria-expanded={open}
@@ -36,7 +36,7 @@ export default function CollapsibleRow({
       >
         <ChevronUp
           className={cn(
-            "h-4 w-4 transform transition-transform duration-200",
+            "h-3 w-3 transform text-gray-500 transition-transform duration-200",
             open ? "rotate-180" : "",
           )}
         />
@@ -51,9 +51,9 @@ export default function CollapsibleRow({
         role="region"
         aria-labelledby={buttonId}
       >
-        <div className="overflow-hidden px-1">
+        <div className="overflow-hidden">
           {children?.map((node) => (
-            <div key={node.name} className="py-1">
+            <div key={node.name} className="py-1 px-[2px]">
               <TreeViewRow
                 node={node}
                 level={level + 1}

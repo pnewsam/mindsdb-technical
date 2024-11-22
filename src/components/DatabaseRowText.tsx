@@ -11,7 +11,8 @@ const variants = cva("font-medium tracking-tight", {
       view: "text-green-600",
       agent: "text-orange-600",
       project: "text-blue-600",
-      data: "text-blue-600",
+      data: "text-blue-700",
+      table: "text-gray-600",
     },
   },
   defaultVariants: {
@@ -21,5 +22,14 @@ const variants = cva("font-medium tracking-tight", {
 
 export default function DatabaseRowText({ ...node }: DatabaseNode) {
   const { name, type } = node;
-  return <h4 className={cn(variants({ type }))}>{name}</h4>;
+  return (
+    <h4
+      className={cn(
+        variants({ type }),
+        node.class === "schema" && "text-yellow-600",
+      )}
+    >
+      {name}
+    </h4>
+  );
 }
