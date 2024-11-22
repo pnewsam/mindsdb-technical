@@ -1,9 +1,9 @@
 import { type TreeViewNode } from "./treeView";
 
 export interface DatabaseNode extends TreeViewNode {
-  class: "db" | "table" | "schema";
-  type: "project" | "model" | "agent";
+  class: "db" | "schema" | "table";
+  type: "system" | "project" | "model" | "view" | "agent" | "data" | "table";
   engine: "lightwood" | "files" | "web" | null;
   children?: DatabaseNode[];
-  schema?: string | null;
+  schema: null;
 }

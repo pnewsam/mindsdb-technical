@@ -11,7 +11,7 @@ const variants = cva("font-medium tracking-tight", {
       view: "text-green-600",
       agent: "text-orange-600",
       project: "text-blue-600",
-      data: "text-blue-700",
+      data: "text-blue-600",
       table: "text-gray-600",
     },
   },

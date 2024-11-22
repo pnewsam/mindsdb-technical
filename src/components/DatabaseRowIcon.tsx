@@ -9,6 +9,9 @@ const iconByType = {
   model: Brain,
   agent: Bot,
   view: View,
+  table: Db,
+  system: Db,
+  data: Db,
 };
 
 const variants = cva("h-4 w-4", {
@@ -36,7 +39,7 @@ const getIconByType = (type: DatabaseNode["type"]) => {
 export default function DatabaseRowIcon({ ...node }: DatabaseNode) {
   if (node.class === "schema") {
     // "class": "schema" is one exception to the rule that icons are determined by type
-    return <FolderTree className="text-yellow-500" />;
+    return <FolderTree className="w-4 h-4 text-yellow-500" />;
   }
 
   const { type } = node;

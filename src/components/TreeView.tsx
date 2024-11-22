@@ -13,10 +13,10 @@ export default function TreeView({
 }) {
   return (
     <div className="rounded-lg border bg-white shadow">
-      <div className="mx-5 border-b-2 border-gray-100 py-5">
+      <div className="mx-5 border-b-2 border-gray-100 pt-5 pb-3">
         <h3 className="text-xl font-semibold tracking-tight">{title}</h3>
       </div>
-      <div className="flex flex-col gap-2 p-5">
+      <div className="flex flex-col gap-[6px] px-5 py-4">
         {nodes.map((node, index) => (
           <TreeViewRow
             key={`${node.name}-${index}`}

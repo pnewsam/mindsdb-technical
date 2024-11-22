@@ -53,7 +53,7 @@ export default function CollapsibleRow({
       >
         <div className="overflow-hidden">
           {children?.map((node) => (
-            <div key={node.name} className="py-1 px-[2px]">
+            <div key={node.name} className="py-[3px] px-[2px]">
               <TreeViewRow
                 node={node}
                 level={level + 1}
